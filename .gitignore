@@ -1,0 +1,51 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Environment-specific files
+.env
+venv/
+env/
+.venv/
+
+# Logs
+*.log
+
+# Temporary files
+*.bak
+*.swp
+*.tmp
+*.tmp.*
+*.~*
+
+# Dependency directories
+env/
+venv/
+env.bak/
+venv.bak/
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# Distribution files
+*.egg
+*.egg-info
+*.distrib
+*.exe
+*.msi
+*.apk
+*.whl
+
+# Other generated files
+*.pyz
+*.pyzw
+*.pyz-32
+*.pyz-64

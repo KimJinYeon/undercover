@@ -1,7 +1,13 @@
 from abc import ABC, abstractmethod
+from typing import Union
 
 
 class Encryptor(ABC):
+
+    encryption_method: str  # describes encryption algorithm
+    _encryption_key: Union[str, bytes]  # key for encrypting file, could be str or bytes
+    _decryption_key: Union[str, bytes]  # key for decrypting file, could be str or bytes
+
     """
     Encryptor class is an abstract class for encrypting.
 
@@ -9,7 +15,9 @@ class Encryptor(ABC):
          None.
 
     Attributes:
-        None.
+        encryption_method: describes encryption algorithm
+        _encryption_key: key for encrypting file, could be str or bytes
+        _decryption_key: key for decrypting file, could be str or bytes
 
     Methods:
         encrypt_file: encrypt file with given encryption key.

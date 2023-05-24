@@ -5,6 +5,7 @@ from typing import Union
 class Encryptor(ABC):
 
     encryption_method: str  # describes encryption algorithm
+    _encryptor: any  # encryptor module
     _encryption_key: Union[str, bytes]  # key for encrypting file, could be str or bytes
     _decryption_key: Union[str, bytes]  # key for decrypting file, could be str or bytes
 

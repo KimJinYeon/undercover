@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import Union
 
 
-class Encryptor(ABC):
+class AbstractEncryptor(ABC):
 
     encryption_method: str  # describes encryption algorithm
     _encryptor: any  # encryptor module
@@ -13,7 +13,10 @@ class Encryptor(ABC):
     Encryptor class is an abstract class for encrypting.
 
     Args:
-         None.
+        encryption_method: describes encryption algorithm
+        _encryptor: encryptor module
+        _encryption_key: key for encrypting file, could be str or bytes
+        _decryption_key: key for decrypting file, could be str or bytes
 
     Attributes:
         encryption_method: describes encryption algorithm
@@ -33,24 +36,19 @@ class Encryptor(ABC):
         pass
 
     @abstractmethod
-    def encrypt_file(self, file_path, encryption_key):
+    def encrypt_file(self):
         """
         Encrypt file with given key.
-        :param file_path: file path toward target file.
-        :param encryption_key: key for encryption.
         :return:
             any: return encrypted file
         """
-
         # if subclass does not override this method, raise NotImplementedError
         raise NotImplementedError("Subclasses must implement encrypt_file method.")
 
     @abstractmethod
-    def decrypt_file(self, file_path, decryption_key):
+    def decrypt_file(self):
         """
         Decrypt file with given key.
-        :param file_path: file path toward target file.
-        :param decryption_key: key for decryption.
         :return:
             any: return decrypted file
         """
@@ -69,10 +67,9 @@ class Encryptor(ABC):
         raise NotImplementedError("Subclasses must implement generate_encryption_key method.")
 
     @abstractmethod
-    def generate_decryption_key(self, encryption_key):
+    def generate_decryption_key(self):
         """
         generate decryption key matches with encryption key
-        :param encryption_key:
         :return:
             any: return generated decryption key
         """
@@ -80,13 +77,9 @@ class Encryptor(ABC):
         raise NotImplementedError("Subclasses must implement generate_decryption_key method.")
 
     @abstractmethod
-    def validate_key(self, encryption_key, decryption_key=None):
+    def validate_key(self):
         """
         validate given keys.
-        :param encryption_key:
-            if decryption_key is not given, validate encryption key.
-        :param decryption_key:
-            if given, validate decryption key with encryption key.
         :return:
             bool: True if validated else False
         """

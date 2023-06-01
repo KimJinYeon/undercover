@@ -39,8 +39,6 @@ class AbstractEncryptor(ABC):
     def encrypt_file(self):
         """
         Encrypt file with given key.
-        :return:
-            any: return encrypted file
         """
         # if subclass does not override this method, raise NotImplementedError
         raise NotImplementedError("Subclasses must implement encrypt_file method.")
@@ -49,8 +47,6 @@ class AbstractEncryptor(ABC):
     def decrypt_file(self):
         """
         Decrypt file with given key.
-        :return:
-            any: return decrypted file
         """
 
         # if subclass does not override this method, raise NotImplementedError
@@ -60,8 +56,6 @@ class AbstractEncryptor(ABC):
     def generate_encryption_key(self):
         """
         generate encryption key which is long enough.
-        :return:
-            any: return generated encryption key
         """
         # if subclass does not override this method, raise NotImplementedError
         raise NotImplementedError("Subclasses must implement generate_encryption_key method.")
@@ -70,8 +64,6 @@ class AbstractEncryptor(ABC):
     def generate_decryption_key(self):
         """
         generate decryption key matches with encryption key
-        :return:
-            any: return generated decryption key
         """
         # if subclass does not override this method, raise NotImplementedError
         raise NotImplementedError("Subclasses must implement generate_decryption_key method.")
@@ -80,8 +72,6 @@ class AbstractEncryptor(ABC):
     def validate_key(self):
         """
         validate given keys.
-        :return:
-            bool: True if validated else False
         """
         # if subclass does not override this method, raise NotImplementedError
         raise NotImplementedError("Subclasses must implement validate_key method.")

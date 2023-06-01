@@ -1,6 +1,6 @@
 import pytest
 
-from undercover.encryption.AES import AES
+from undercover.encryption.symmetric.AES import AES
 
 
 class TestAES:
@@ -13,7 +13,7 @@ class TestAES:
         encryption_key = aes.generate_encryption_key()
 
         aes.set_encryptor(encryption_key)
-        aes.encrypt_file(file_path, encryption_key)
+        aes.encrypt(file_path, encryption_key)
         print(aes._nonce)
         # aes.decrypt_file(file_path, encryption_key)
         assert True
